@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func main() {
@@ -11,5 +12,12 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	r.GET("/user/:name", func(c *gin.Context) {
+		name := c.Param("name")
+		message := "Hello, " + name + "."
+		c.String(http.StatusOK, message)
+	})
+
 	r.Run(":9000")
 }
