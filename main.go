@@ -19,6 +19,9 @@ func InsertData(c *gin.Context) {
 		fmt.Println(err)
 		return
 	}
+	fmt.Println("---------------------------------------")
+	fmt.Println(user.Id, user.Name, user.Male, user.Password)
+	fmt.Println("---------------------------------------")
 	c.JSON(http.StatusOK, gin.H{
 		"status":  "success",
 		"message": user.Name + " has been inserted successfully!",
